@@ -8,9 +8,12 @@ metadata:
 spec:
   containers:
   - name: todoapp
-    image: ikulyk404/todoapp:3.0.0
+    image: andriiky/todoapp:v4.0.0
     ports:
     - containerPort: 8080
+    env:
+    - name: EXTERNAL_ENDPOINT
+      value: "http://httpbin-api.todoapp.svc.cluster.local"
     livenessProbe:
       httpGet:
         path: api/health
@@ -36,9 +39,12 @@ metadata:
 spec:
   containers:
   - name: todoapp
-    image: ikulyk404/todoapp:3.0.0
+    image: andriiky/todoapp:v4.0.0
     ports:
     - containerPort: 8080
+    env:
+    - name: EXTERNAL_ENDPOINT
+      value: "http://httpbin-api.todoapp.svc.cluster.local"
     livenessProbe:
       httpGet:
         path: api/health
